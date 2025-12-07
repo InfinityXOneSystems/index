@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import { loadYamlFile, validateSchema } from '../lib/loader';
+import { loadYamlFile } from '../lib/loader';
 import fs from 'fs';
 import path from 'path';
 import { ActionsFile, RepoList } from '../types/index';
@@ -63,6 +63,7 @@ program
   .option('-o, --out <path>', 'output path', 'generated/openapi-actions.json')
   .action((opts) => {
     const actions = loadYamlFile<ActionsFile>('actions.yml');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const openapi: any = {
       openapi: '3.1.0',
       info: { title: 'Infinity X Actions', version: '0.1.0' },

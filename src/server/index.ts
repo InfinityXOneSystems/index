@@ -38,25 +38,31 @@ app.get('/repos', (_req, res) => {
 
 app.get('/repos/:id', (req, res) => {
   const r = repos.repos.find((x) => x.id === req.params.id);
-  if (!r) return res.status(404).json({ error: 'not found' });
-  res.json(r);
+  if (!r) {
+    return res.status(404).json({ error: 'not found' });
+  }
+  return res.json(r);
 });
 
 app.get('/actions', (_req, res) => res.json(actions.actions));
 app.get('/actions/:id', (req, res) => {
   const a = actions.actions.find((x) => x.id === req.params.id);
-  if (!a) return res.status(404).json({ error: 'not found' });
-  res.json(a);
+  if (!a) {
+    return res.status(404).json({ error: 'not found' });
+  }
+  return res.json(a);
 });
 
 app.get('/capabilities', (_req, res) => res.json(actions.capabilities));
 app.get('/capabilities/:id', (req, res) => {
   const c = actions.capabilities.find((x) => x.id === req.params.id);
-  if (!c) return res.status(404).json({ error: 'not found' });
-  res.json(c);
+  if (!c) {
+    return res.status(404).json({ error: 'not found' });
+  }
+  return res.json(c);
 });
 
-app.get('/actions/openapi', (req, res) => {
+app.get('/actions/openapi', (_req, res) => {
   // Serve generated openapi if exists, otherwise call CLI generate
   const p = path.resolve(process.cwd(), 'generated/openapi-actions.json');
   try {

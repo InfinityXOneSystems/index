@@ -159,7 +159,9 @@ repos:
     entrypoints:
       - type: "http"
     datastores: []
-    dependencies: []
+    dependencies:
+      internal: []
+      external: []
   - id: taxonomy
     name: "taxonomy"
     repo: "InfinityXOneSystems/taxonomy"
@@ -175,7 +177,9 @@ repos:
     runtime: "n/a"
     entrypoints: []
     datastores: []
-    dependencies: []
+    dependencies:
+      internal: []
+      external: []
   - id: security
     name: "security"
     repo: "InfinityXOneSystems/security"
@@ -191,7 +195,9 @@ repos:
     runtime: "n/a"
     entrypoints: []
     datastores: []
-    dependencies: []
+    dependencies:
+      internal: []
+      external: []
   - id: auto_templates
     name: "auto_templates"
     repo: "InfinityXOneSystems/auto_templates"
@@ -208,4 +214,6 @@ repos:
     runtime: "n/a"
     entrypoints: []
     datastores: []
-    dependencies: []
+    dependencies:
+      internal: []
+      external: []
