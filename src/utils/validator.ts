@@ -1,4 +1,3 @@
-import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import draft2020 from "ajv/dist/2020.js";
 import { loadSchema } from "./loader.js";
