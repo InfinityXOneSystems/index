@@ -1,45 +1,21 @@
-# Build stage
+# Builder stage: install full deps and build
 FROM node:20-alpine AS builder
-
 WORKDIR /app
-
-# Copy package files
 COPY package*.json ./
-COPY tsconfig.json ./
-
-# Install dependencies
 RUN npm ci
-
-# Copy source code
-COPY src ./src
-COPY config ./config
-COPY schemas ./schemas
-
-# Build TypeScript
+COPY . .
 RUN npm run build
 
-# Production stage
+# Runtime stage: only production deps + dist
 FROM node:20-alpine
-
 WORKDIR /app
-
-# Copy package files
 COPY package*.json ./
-
-# Install production dependencies only
-RUN npm ci --production
-
-# Copy built files from builder
+RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
-COPY config ./config
+COPY repos.yml actions.yml ./
 COPY schemas ./schemas
-
-# Expose port
-EXPOSE 3000
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
-
-# Run the server
-CMD ["node", "dist/server/index.js"]
+ENV NODE_ENV=production
+EXPOSE 3001
+USER node
+HEALTHCHECK --interval=15s --timeout=3s CMD wget -qO- --timeout=2 http://localhost:3001/healthz || exit 1
+CMD ["node", "dist/src/server/index.js"]
