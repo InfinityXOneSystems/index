@@ -63,25 +63,21 @@ app.get('/capabilities/:id', (req, res) => {
 });
 
 app.get('/actions/openapi', (_req, res) => {
-  // Serve generated openapi if exists, otherwise call CLI generate
+  // Serve generated openapi if exists
   const p = path.resolve(process.cwd(), 'generated/openapi-actions.json');
   try {
     const openapi = loadJsonFile(p);
     return res.json(openapi);
   } catch (err) {
-    // attempt to generate via CLI module
-    try {
-      // dynamic import of the CLI generator
-      // (simple approach: spawn the CLI or reuse code; for brevity, try reading the generated file again)
-      return res.status(404).json({ error: 'OpenAPI not generated. Run index-cli generate-openapi' });
-    } catch (e) {
-      return res.status(500).json({ error: 'failed to produce openapi' });
-    }
+    return res.status(404).json({ error: 'OpenAPI not generated. Run index-cli generate-openapi' });
   }
 });
 
 // Health-check friendly port
-const port = process.env.PORT ? parseInt(process.env.PORT) : 3001;
+const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
+if (port < 1 || port > 65535) {
+  throw new Error('PORT must be between 1 and 65535');
+}
 app.listen(port, () => {
   console.log(`Index service listening on ${port}`);
 });

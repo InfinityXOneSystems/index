@@ -12,6 +12,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
+COPY repos.yml actions.yml ./
+COPY schemas ./schemas
 ENV NODE_ENV=production
 EXPOSE 3001
 USER node

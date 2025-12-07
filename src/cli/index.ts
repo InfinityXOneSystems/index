@@ -84,7 +84,7 @@ program
         openapi.paths[a.http.path][a.http.method.toLowerCase()].requestBody = {
           content: {
             'application/json': {
-              schema: { $ref: `/${a.request_schema}` }
+              schema: { $ref: `#/components/schemas/${a.request_schema}` }
             }
           }
         };
