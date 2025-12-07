@@ -11,6 +11,8 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3000
+      # Development allows localhost origins by default
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:3001,http://localhost:8080}
     volumes:
       # Mount source for hot reload
       - ./src:/app/src:ro

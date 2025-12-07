@@ -110,6 +110,14 @@ npm run dev
 
 The server will start on `http://localhost:3000` (or `$PORT` if set).
 
+**Environment Variables:**
+
+- `PORT` - Server port (default: 3000)
+- `NODE_ENV` - Environment mode (`development` or `production`)
+- `ALLOWED_ORIGINS` - Comma-separated list of allowed CORS origins (see [DOCKER.md](DOCKER.md#cors-configuration))
+
+Copy `.env.example` to `.env` to customize configuration.
+
 ## 📡 API Endpoints
 
 ### Health Checks

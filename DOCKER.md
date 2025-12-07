@@ -124,6 +124,34 @@ Configure via `docker-compose.yml` or `-e` flags:
 
 - `NODE_ENV` - Set to `production` or `development`
 - `PORT` - Server port (default: 3000)
+- `ALLOWED_ORIGINS` - Comma-separated list of allowed CORS origins (default: `http://localhost:3000`)
+
+### CORS Configuration
+
+For security, the service uses an origin whitelist for Cross-Origin Resource Sharing (CORS). Configure allowed origins based on your deployment:
+
+**Development** (default):
+```bash
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:8080
+```
+
+**Production** (recommended):
+```bash
+ALLOWED_ORIGINS=https://app.example.com,https://admin.example.com
+```
+
+**Docker Compose**:
+```yaml
+environment:
+  - ALLOWED_ORIGINS=https://yourdomain.com,https://app.yourdomain.com
+```
+
+**Docker Run**:
+```bash
+docker run -e ALLOWED_ORIGINS=https://yourdomain.com infinity-index:latest
+```
+
+If `ALLOWED_ORIGINS` is not set, the service defaults to common localhost ports for development. In production, always specify your trusted domains explicitly.
 
 ## Volumes
 

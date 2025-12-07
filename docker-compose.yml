@@ -12,6 +12,10 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
+      # Configure CORS allowed origins (comma-separated list)
+      # Default: http://localhost:3000
+      # Example: https://app.example.com,https://admin.example.com
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000}
     volumes:
       # Mount config as read-only
       - ./config:/app/config:ro
