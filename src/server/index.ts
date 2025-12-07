@@ -24,6 +24,13 @@ const PORT = process.env.PORT || 3000;
 const ROOT_DIR = path.resolve(__dirname, "../..");
 const GENERATED_DIR = path.join(ROOT_DIR, "generated");
 
+// Default CORS origins for development (not used in production)
+const DEFAULT_DEV_ORIGINS = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:8080',
+];
+
 // Middleware
 app.use(express.json());
 
@@ -35,12 +42,7 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
   : process.env.NODE_ENV === 'production'
   ? [] // No default origins in production - must be explicitly configured
-  : [
-      // Development-friendly defaults
-      'http://localhost:3000',
-      'http://localhost:3001',
-      'http://localhost:8080',
-    ];
+  : DEFAULT_DEV_ORIGINS;
 
 // Warn if production environment has no CORS origins configured
 if (process.env.NODE_ENV === 'production' && allowedOrigins.length === 0) {
@@ -52,13 +54,16 @@ app.use((req, res, next) => {
   const origin = req.headers.origin;
   
   if (origin && allowedOrigins.includes(origin)) {
+    // Allow specific origin with credentials
     res.header("Access-Control-Allow-Origin", origin);
     res.header("Access-Control-Allow-Credentials", "true");
   } else if (process.env.NODE_ENV === 'development' && !origin) {
     // Allow requests without origin header in development (e.g., curl, Postman)
+    // Note: Wildcard is used WITHOUT credentials for security
     // This is logged for security awareness
     console.log('[CORS] Allowing wildcard origin for request without origin header (development mode)');
     res.header("Access-Control-Allow-Origin", "*");
+    // Intentionally NOT setting Access-Control-Allow-Credentials with wildcard
   }
   
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
