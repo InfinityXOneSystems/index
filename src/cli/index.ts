@@ -60,23 +60,23 @@ reposCmd
       console.log(YAML.stringify(repos));
     } else {
       console.log(
-        "\n┌─────────────────────────────────────────────────────────────────────┐"
+        "\nâ”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”"
       );
       console.log(
-        "│ REPOSITORIES                                                        │"
+        "â”‚ REPOSITORIES                                                        â”‚"
       );
       console.log(
-        "├─────────────────────────────────────────────────────────────────────┤"
+        "â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤"
       );
       repos.forEach((repo) => {
         console.log(
-          `│ ${repo.name.padEnd(25)} │ S${repo.stage} │ ${repo.tier.padEnd(
+          `â”‚ ${repo.name.padEnd(25)} â”‚ S${repo.stage} â”‚ ${repo.tier.padEnd(
             7
-          )} │ ${repo.status.padEnd(12)} │`
+          )} â”‚ ${repo.status.padEnd(12)} â”‚`
         );
       });
       console.log(
-        "└─────────────────────────────────────────────────────────────────────┘"
+        "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜"
       );
       console.log(`\nTotal: ${repos.length} repositories\n`);
     }
@@ -129,23 +129,23 @@ capabilitiesCmd
       console.log(YAML.stringify(capabilities));
     } else {
       console.log(
-        "\n┌──────────────────────────────────────────────────────────────────────────┐"
+        "\nâ”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”"
       );
       console.log(
-        "│ CAPABILITIES                                                             │"
+        "â”‚ CAPABILITIES                                                             â”‚"
       );
       console.log(
-        "├──────────────────────────────────────────────────────────────────────────┤"
+        "â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤"
       );
       capabilities.forEach((cap) => {
         console.log(
-          `│ ${cap.id.padEnd(35)} │ ${cap.domain.padEnd(12)} │ ${cap.name
+          `â”‚ ${cap.id.padEnd(35)} â”‚ ${cap.domain.padEnd(12)} â”‚ ${cap.name
             .substring(0, 22)
-            .padEnd(22)} │`
+            .padEnd(22)} â”‚`
         );
       });
       console.log(
-        "└──────────────────────────────────────────────────────────────────────────┘"
+        "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜"
       );
       console.log(`\nTotal: ${capabilities.length} capabilities\n`);
     }
@@ -197,25 +197,25 @@ actionsCmd
       console.log(YAML.stringify(actions));
     } else {
       console.log(
-        "\n┌─────────────────────────────────────────────────────────────────────────────────┐"
+        "\nâ”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”"
       );
       console.log(
-        "│ ACTIONS                                                                         │"
+        "â”‚ ACTIONS                                                                         â”‚"
       );
       console.log(
-        "├─────────────────────────────────────────────────────────────────────────────────┤"
+        "â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤"
       );
       actions.forEach((action) => {
         const method = action.http.method.padEnd(6);
         const path = action.http.path.substring(0, 30).padEnd(30);
         console.log(
-          `│ ${action.id.padEnd(
+          `â”‚ ${action.id.padEnd(
             30
-          )} │ ${method} │ ${path} │ ${action.repo.padEnd(12)} │`
+          )} â”‚ ${method} â”‚ ${path} â”‚ ${action.repo.padEnd(12)} â”‚`
         );
       });
       console.log(
-        "└─────────────────────────────────────────────────────────────────────────────────┘"
+        "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜"
       );
       console.log(`\nTotal: ${actions.length} actions\n`);
     }
@@ -269,7 +269,7 @@ validateCmd
       process.exit(1);
     }
 
-    console.log("\n✅ All repositories are valid\n");
+    console.log("\nâœ… All repositories are valid\n");
   });
 
 validateCmd
@@ -307,7 +307,7 @@ validateCmd
       process.exit(1);
     }
 
-    console.log("\n✅ All capabilities and actions are valid\n");
+    console.log("\nâœ… All capabilities and actions are valid\n");
   });
 
 validateCmd
@@ -330,11 +330,11 @@ validateCmd
     );
 
     if (!result.valid) {
-      console.log("\n❌ Validation failed - see errors above\n");
+      console.log("\nâŒ Validation failed - see errors above\n");
       process.exit(1);
     }
 
-    console.log("\n✅ All configurations are valid\n");
+    console.log("\nâœ… All configurations are valid\n");
   });
 
 // ============================================================================
@@ -355,7 +355,7 @@ generateCmd
 
     const { spec, path: outputPath } = generateAndWriteOpenAPI(options.output);
 
-    console.log(`\n✅ Generated OpenAPI spec:`);
+    console.log(`\nâœ… Generated OpenAPI spec:`);
     console.log(`   Path: ${outputPath}`);
     console.log(`   Paths: ${Object.keys(spec.paths).length}`);
     console.log(
@@ -380,7 +380,7 @@ generateCmd
 
     const paths = generateAndWriteGraphs(filters);
 
-    console.log(`\n✅ Generated graphs:`);
+    console.log(`\nâœ… Generated graphs:`);
     console.log(`   JSON: ${paths.json}`);
     console.log(`   Mermaid: ${paths.mermaid}`);
     console.log(`   DOT: ${paths.dot}\n`);

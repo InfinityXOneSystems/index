@@ -388,9 +388,9 @@ app.get("/", (req, res) => {
 // ============================================================================
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Infinity XOS Global Index (Tier-0) started`);
-  console.log(`📍 Listening on http://localhost:${PORT}`);
-  console.log(`📖 API docs at http://localhost:${PORT}/\n`);
+  console.log(`\nðŸš€ Infinity XOS Global Index (Tier-0) started`);
+  console.log(`ðŸ“ Listening on http://localhost:${PORT}`);
+  console.log(`ðŸ“– API docs at http://localhost:${PORT}/\n`);
 
   // Validate on startup
   try {
@@ -399,12 +399,12 @@ app.listen(PORT, () => {
     const result = validateAll(reposData, actionsData);
 
     if (result.valid) {
-      console.log("✅ All configurations validated successfully");
+      console.log("âœ… All configurations validated successfully");
       console.log(`   - ${result.repos.totalRepos} repositories`);
       console.log(`   - ${result.actions.capabilities.total} capabilities`);
       console.log(`   - ${result.actions.actions.total} actions\n`);
     } else {
-      console.warn("⚠️  Configuration validation warnings:");
+      console.warn("âš ï¸  Configuration validation warnings:");
       if (result.repos.invalidRepos.length > 0) {
         console.warn(
           `   - ${result.repos.invalidRepos.length} invalid repositories`
@@ -423,7 +423,7 @@ app.listen(PORT, () => {
       console.warn("");
     }
   } catch (error) {
-    console.error("❌ Failed to validate configurations on startup:", error);
+    console.error("âŒ Failed to validate configurations on startup:", error);
   }
 });
 
